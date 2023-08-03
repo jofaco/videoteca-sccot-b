@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apps.videos.models import Categoria, Idioma, Video, tipoVideo
+from apps.videos.models import Categoria, Idioma, Video
 from apps.videos.api.serializers.general_serializers import (
     CategoriaSerializerV,
     IdiomaSerializer,
@@ -28,12 +28,13 @@ class VideoSerializer(serializers.ModelSerializer):
             "duration",
             "featured_image",
             "min_image",
-            "repro_counter",
             "score",
+            "cumulative_score",
+            "numberOfVotes",
             "tipe_of_video",
             "state",
-            "url_vimeo_esp",
-            "url_vimeo_eng",
+            "upload_date",
+            "create_date",
             "categorias",
             "languages",
         ]
@@ -75,12 +76,13 @@ class VideoSerializer2(serializers.ModelSerializer):
             "duration",
             "featured_image",
             "min_image",
-            "repro_counter",
             "score",
+            "cumulative_score",
+            "numberOfVotes",
             "tipe_of_video",
             "state",
-            "url_vimeo_esp",
-            "url_vimeo_eng",
+            "upload_date",
+            "create_date",
             "categorias",
             "languages",
         ]

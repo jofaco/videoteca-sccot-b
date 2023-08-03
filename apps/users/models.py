@@ -1,6 +1,8 @@
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser , PermissionsMixin
 from django.forms import model_to_dict
+from apps.videos.models import Categoria, Video
 
 
 from videoteca.settings.base import MEDIA_URL, STATIC_URL
@@ -74,3 +76,34 @@ class User(AbstractBaseUser , PermissionsMixin):
 
     def __str__(self):
         return f'{self.name}'
+
+class   historial_user(models.Model):
+    tiempo = models.DurationField(blank= True, null=True)
+    visto = models.BooleanField(default=False)
+    counter_repro = models.BigIntegerField(default=0, validators= [MinValueValidator(0,message=None)])
+    user_score = models.IntegerField(null=True, blank=True)
+    usuario = models.ForeignKey(User,on_delete=models.CASCADE)
+    video = models.ForeignKey(Video, on_delete=models.CASCADE)
+
+    
+    def __str__(self):
+        return f'{self.id}'
+
+class gustosUsuario(models.Model):
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.categoria}'
+
+class Commentary(models.Model):
+    commentary = models.CharField('Comentario', max_length=200)
+    created_date = models.DateTimeField('Fecha de creación',auto_now_add=True, auto_now=False)
+    update_date = models.DateTimeField('Fecha de modificación',auto_now_add=False, auto_now=True)
+    approved_by_m = models.BooleanField('Aprovado por el admin',default=False)
+    historial_user = models.ForeignKey(historial_user, on_delete=models.CASCADE)
+    video = models.ForeignKey(Video, on_delete=models.CASCADE)
+
+    def __str__(self):
+        """Unicode representation of Commentary."""
+        return f'{self.commentary}'

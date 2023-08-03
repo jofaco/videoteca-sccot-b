@@ -31,3 +31,5 @@ class CategoriaSerializerV(serializers.PrimaryKeyRelatedField, serializers.Model
     class Meta:
         model = Categoria
         fields = "__all__"
+
+
