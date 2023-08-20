@@ -50,6 +50,34 @@ class Categoria(models.Model):
     def __str__(self):
         """Unicode representation of Categoria."""
         return self.categoria
+
+class Especialidad(models.Model):
+    especialidad = models.CharField('Especialidad', max_length=50)
+
+    class Meta:
+        """Meta definition for Especialidad."""
+
+        verbose_name = 'Especialidad del video'
+        verbose_name_plural = 'Especialidades del video'
+
+    def __str__(self):
+        """Unicode representation of Especialidad."""
+        return self.especialidad
+    
+class subEspecialidad(models.Model):
+    subEspecialidad = models.CharField('Sub Especialidad', max_length=50)
+
+    class Meta:
+        """Meta definition for subEspecialidad."""
+
+        verbose_name = 'Subespecialidad del video'
+        verbose_name_plural = 'Subespecialidades del video'
+
+    def __str__(self):
+        """Unicode representation of subEspecialidad."""
+        return self.subEspecialidad
+    
+
 class Idioma(models.Model):
     language = models.CharField('Idioma', max_length=50)
 
@@ -95,6 +123,8 @@ class Video(models.Model):
     numberOfVotes = models.IntegerField('Cantidad de votos', null=True, blank=True)
     tipe_of_video = models.ForeignKey(tipoVideo,on_delete=models.CASCADE, verbose_name='Tipo de video')
     categorias = models.ManyToManyField(Categoria, related_name="Categorias", verbose_name="Categorias")
+    especialidad = models.ManyToManyField(Especialidad, related_name="Especialidades", verbose_name="Especialidades")
+    subEspecialidad = models.ManyToManyField(subEspecialidad, related_name="subEspecialidades", verbose_name="subEspecialidades")
     languages = models.ManyToManyField(Idioma, related_name="Idiomas", verbose_name='Idiomas')
     palabras_claves = models.ManyToManyField(Palabras_claves, related_name="Palabras_claves", verbose_name='Palabras_claves')
     keywords = models.ManyToManyField(Keywords, related_name="Keywords", verbose_name='Keywords')
