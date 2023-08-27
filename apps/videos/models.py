@@ -1,6 +1,7 @@
 
 from django.db import models
 
+from apps.series.models import Serie, Temporada
 # Create your models here.
 
 
@@ -121,6 +122,7 @@ class Video(models.Model):
     score = models.DecimalField('puntuación', max_digits=3, decimal_places=2, null=True)
     cumulative_score = models.IntegerField('puntuaje acumulado', null=True, blank=True)
     numberOfVotes = models.IntegerField('Cantidad de votos', null=True, blank=True)
+    state = models.BooleanField('Estado',default = True)
     tipe_of_video = models.ForeignKey(tipoVideo,on_delete=models.CASCADE, verbose_name='Tipo de video')
     categorias = models.ManyToManyField(Categoria, related_name="Categorias", verbose_name="Categorias")
     especialidad = models.ManyToManyField(Especialidad, related_name="Especialidades", verbose_name="Especialidades")
@@ -128,8 +130,7 @@ class Video(models.Model):
     languages = models.ManyToManyField(Idioma, related_name="Idiomas", verbose_name='Idiomas')
     palabras_claves = models.ManyToManyField(Palabras_claves, related_name="Palabras_claves", verbose_name='Palabras_claves')
     keywords = models.ManyToManyField(Keywords, related_name="Keywords", verbose_name='Keywords')
-    state = models.BooleanField('Estado',default = True)
-
+    temporada = models.ForeignKey(Temporada,on_delete=models.CASCADE, verbose_name='Temporada', null=True)
     class Meta: 
         """Meta definition for Video."""
 

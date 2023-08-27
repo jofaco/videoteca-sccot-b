@@ -32,6 +32,7 @@ LOCAL_APPS = [
     'apps.videos',
     'apps.location',
     'apps.notifications',
+    'apps.series',
 ]
 THIRD_APPS = [
     'rest_framework',

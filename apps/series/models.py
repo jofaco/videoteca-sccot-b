@@ -19,7 +19,7 @@ class Serie(models.Model):
     
 class Temporada(models.Model):
     temporada = models.CharField('Nombre de la Temporada', max_length=50)
-    temporada_letras = models.CharField('Temporada en letras', max_length=50)
+    temporada_letras = models.CharField('Temporada en letras', max_length=50, null=True)
     temporada_numero = models.IntegerField('Temporada en numeros')
     description = models.TextField('Descripción de la temporada')
     create_date = models.DateField('Fecha de creación', auto_now=True)
