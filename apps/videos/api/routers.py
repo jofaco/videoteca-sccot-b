@@ -7,6 +7,8 @@ router = DefaultRouter()
 
 router.register(r'videos',VideoViewSet, basename = 'videos')
 router.register(r'categorias',categoriaViewset, basename = 'categorias')
+router.register(r'especialidades',especialidadViewset, basename = 'especialidades')
+router.register(r'subespecialidades',subEspecialidadViewset, basename = 'subespecialidades')
 router.register(r'idiomas',idiomaViewset, basename = 'idiomas')
 router.register(r'tipos_de_Video',tipoVideoViewset, basename = 'tipos_de_Video')
 router.register(r'historialUser', historialUserViewset, basename='historialUser')

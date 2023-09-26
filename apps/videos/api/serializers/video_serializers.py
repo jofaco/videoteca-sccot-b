@@ -1,18 +1,26 @@
 from rest_framework import serializers
 from apps.videos.models import Categoria, Idioma, Video
+from apps.series.api.serializers import *
 from apps.videos.api.serializers.general_serializers import (
     CategoriaSerializerV,
     IdiomaSerializer,
     IdiomaSerializerV,
     tipoVideoSerializer,
     CategoriaSerializer,
+    EspecialidadSerializer,
+    EspecialidadSerializerV,
+    SubEspecialidadSerializer,
+    SubEspecialidadSerializerV
 )
 
 #serializer for create and update
 class VideoSerializer(serializers.ModelSerializer):
     tipe_of_video = tipoVideoSerializer
+    temporada = temporadaSerializer
     languages = IdiomaSerializerV(many=True, queryset=Idioma.objects.all())
     categorias = CategoriaSerializerV(many=True, queryset=Categoria.objects.all())
+    especialidad = EspecialidadSerializerV(many=True, queryset=Categoria.objects.all())
+    subEspecialidad = SubEspecialidadSerializerV(many=True, queryset=Categoria.objects.all())
     class Meta:
         model = Video
         fields = [
@@ -37,29 +45,42 @@ class VideoSerializer(serializers.ModelSerializer):
             "create_date",
             "categorias",
             "languages",
+            "especialidad",
+            "subEspecialidad"
         ]
 
     def create(self, validated_data):
         categorias = validated_data.pop("categorias")
-        idioms = validated_data.pop(
-            "languages"
-        )  # se obtiene una lista con los idiomas seleccionados
+        especialidad = validated_data.pop("especialidad")
+        subEspecialidad = validated_data.pop("subEspecialidad")
+        idioms = validated_data.pop("languages")
+
         instance = Video.objects.create(
             **validated_data
         )  # se crea el objeto del formulario json para Video
-        print(categorias)
         for i in idioms:
             instance.languages.add(i.id)  # se guarda la relacion m2m
 
         for j in categorias:
             instance.categorias.add(j.id) # se guarda la relacion m2m
+
+        for j in especialidad:
+            instance.especialidad.add(j.id) # se guarda la relacion m2m
+
+        for j in subEspecialidad:
+            instance.subEspecialidad.add(j.id) # se guarda la relacion m2m
+
         return instance
 
 #serializer for list and retrieve
 class VideoSerializer2(serializers.ModelSerializer):
     tipe_of_video = tipoVideoSerializer
+    temporada = temporadaSerializer
     languages = IdiomaSerializer(many=True)
     categorias = CategoriaSerializer(many=True)
+    especialidad = EspecialidadSerializer(many=True)
+    subEspecialidad = SubEspecialidadSerializer(many=True)
+
 
     class Meta:
         model = Video
@@ -85,4 +106,7 @@ class VideoSerializer2(serializers.ModelSerializer):
             "create_date",
             "categorias",
             "languages",
+            "especialidad",
+            "subEspecialidad",
+            "temporada",
         ]

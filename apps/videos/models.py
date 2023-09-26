@@ -128,9 +128,9 @@ class Video(models.Model):
     especialidad = models.ManyToManyField(Especialidad, related_name="Especialidades", verbose_name="Especialidades")
     subEspecialidad = models.ManyToManyField(subEspecialidad, related_name="subEspecialidades", verbose_name="subEspecialidades")
     languages = models.ManyToManyField(Idioma, related_name="Idiomas", verbose_name='Idiomas')
-    palabras_claves = models.ManyToManyField(Palabras_claves, related_name="Palabras_claves", verbose_name='Palabras_claves')
-    keywords = models.ManyToManyField(Keywords, related_name="Keywords", verbose_name='Keywords')
-    temporada = models.ForeignKey(Temporada,on_delete=models.CASCADE, verbose_name='Temporada', null=True)
+    palabras_claves = models.ManyToManyField(Palabras_claves, related_name="Palabras_claves", verbose_name='Palabras_claves', blank=True)
+    keywords = models.ManyToManyField(Keywords, related_name="Keywords", verbose_name='Keywords', blank=True)
+    temporada = models.ForeignKey(Temporada, verbose_name='Temporada',  on_delete=models.SET_NULL, null=True, blank=True)
     class Meta: 
         """Meta definition for Video."""
 
@@ -142,6 +142,12 @@ class Video(models.Model):
 
     def get_categories_video(self):
         return Categoria.objects.filter(Categorias = self)
+    
+    def get_especialidades_video(self):
+        return Especialidad.objects.filter(especialidad = self)
+    
+    def get_subEspecialidades_video(self):
+        return subEspecialidad.objects.filter(subEspecialidad = self)
 
     def __str__(self):
         """Unicode representation of Video."""

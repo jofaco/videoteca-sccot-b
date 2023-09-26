@@ -43,6 +43,8 @@ class VideoViewSet(viewsets.ModelViewSet):
                 model.objects.filter(state=True).order_by('-upload_date')
                 .prefetch_related("languages")
                 .prefetch_related("categorias")
+                .prefetch_related("especialidad")
+                .prefetch_related("subEspecialidad")
             )
         else:
             return (
@@ -50,6 +52,8 @@ class VideoViewSet(viewsets.ModelViewSet):
                 .filter(id=pk)
                 .prefetch_related("languages")
                 .prefetch_related("categorias")
+                .prefetch_related("especialidad")
+                .prefetch_related("subEspecialidad")
                 .first()
             )
 

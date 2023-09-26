@@ -271,3 +271,19 @@ class historialVideoViewset(viewsets.ModelViewSet):
             if serializer.is_valid():
                 serializer.save()
                 return Response({"message": "historial actualizado con exito!"}, status=status.HTTP_200_OK)
+            
+class especialidadViewset(viewsets.ModelViewSet):
+ 
+    serializer_class = EspecialidadSerializer
+
+    def get_queryset(self):
+        queryset = Especialidad.objects.all()
+        return queryset
+    
+class subEspecialidadViewset(viewsets.ModelViewSet):
+ 
+    serializer_class = SubEspecialidadSerializer
+
+    def get_queryset(self):
+        queryset = subEspecialidad.objects.all()
+        return queryset
