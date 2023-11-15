@@ -8,31 +8,31 @@ ALLOWED_HOSTS = ["*"]
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'OPTIONS': {
-#            'sql_mode': 'traditional',
-#        },
-#        'NAME': 'sccotvideo',
-#        'USER':'root',
-#        'PASSWORD':'',
-#        'HOST':'localhost',
-#        'PORT':'3306'
-#    },
-#    'trabajos': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'OPTIONS': {
-#            'sql_mode': 'traditional',
-#        },
-#        'NAME': 'trabajos',
-#        'USER':'root',
-#        'PASSWORD':'',
-#        'HOST':'localhost',
-#        'PORT':'3306'
-#    }
-#}
-#
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        },
+        'NAME': 'sccotvideo',
+        'USER':'sccot',
+        'PASSWORD':'password',
+        'HOST':'localhost',
+        'PORT':'3306'
+    },
+    'trabajos': {
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        },
+        'NAME': 'trabajos',
+        'USER':'root',
+        'PASSWORD':'',
+        'HOST':'localhost',
+        'PORT':'3306'
+    }
+}
+
 
 
 #DATABASE_ROUTERS=['videoteca_db','trabajos_db']
