@@ -148,8 +148,8 @@ USE_TZ = True
 
 AUTH_USER_MODEL = 'users.User'
 
-CORS_ALLOWED_ORIGINS = True
-CORS_ORIGIN_WHITELIST = True
+CORS_ALLOWED_ORIGINS = accesosUrl
+CORS_ORIGIN_WHITELIST = accesosUrl
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=30),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=120),
