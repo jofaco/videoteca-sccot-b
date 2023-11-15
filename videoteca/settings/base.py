@@ -15,8 +15,6 @@ SECRET_KEY = 'django-insecure-m=)yro0jwu$8d28+=2=yfo*)-_4$7=_ng^ywrr5s)m0*3=%(ze
 DEBUG = True
 accesosUrl = [
     "videos.sccot.org",
-    "165.227.177.75",
-    "http://165.227.177.75",
     "http://localhost:8080",
     "http://127.0.0.1:8000",
     "http://localhost:3000",
