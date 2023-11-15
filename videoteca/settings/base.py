@@ -14,8 +14,6 @@ SECRET_KEY = 'django-insecure-m=)yro0jwu$8d28+=2=yfo*)-_4$7=_ng^ywrr5s)m0*3=%(ze
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 accesosUrl = [
-    "localhost",
-    "127.0.0.1",
     "http://videos.sccot.org",
     "videos.sccot.org",
     "165.227.177.75",
@@ -27,8 +25,8 @@ accesosUrl = [
     "http://165.227.177.75:8000",
     "http://165.227.177.75:8080",
     "http://165.227.177.75",
-    "http://videos.sccot.org",
-    "https://sccot-app-1-fnul8.ondigitalocean.app" 
+    "videos.sccot.org",
+    "sccot-app-1-fnul8.ondigitalocean.app" 
 ]
 ALLOWED_HOSTS = accesosUrl
 
@@ -152,9 +150,8 @@ USE_TZ = True
 
 AUTH_USER_MODEL = 'users.User'
 
-CORS_ALLOWED_ORIGINS = accesosUrl
-
-CORS_ORIGIN_WHITELIST = accesosUrl
+CORS_ALLOWED_ORIGINS = True
+CORS_ORIGIN_WHITELIST = True
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=30),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=120),
