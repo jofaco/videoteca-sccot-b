@@ -16,10 +16,10 @@ DEBUG = True
 accesosUrl = [
     "localhost",
     "127.0.0.1",
-    "http://videos.sccot.org/",
+    "http://videos.sccot.org",
     "videos.sccot.org",
-    "http://165.227.177.75/",
     "165.227.177.75",
+    "http://165.227.177.75",
     "http://localhost:8080",
     "http://127.0.0.1:8000",
     "http://localhost:3000",
@@ -28,7 +28,7 @@ accesosUrl = [
     "http://165.227.177.75:8080",
     "http://165.227.177.75",
     "http://videos.sccot.org",
-    "https://sccot-app-1-fnul8.ondigitalocean.app/"
+    "https://sccot-app-1-fnul8.ondigitalocean.app" 
 ]
 ALLOWED_HOSTS = accesosUrl
 
