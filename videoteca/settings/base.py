@@ -14,7 +14,6 @@ SECRET_KEY = 'django-insecure-m=)yro0jwu$8d28+=2=yfo*)-_4$7=_ng^ywrr5s)m0*3=%(ze
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 accesosUrl = [
-    "http://videos.sccot.org",
     "videos.sccot.org",
     "165.227.177.75",
     "http://165.227.177.75",
@@ -24,7 +23,7 @@ accesosUrl = [
     "http://127.0.0.1:3000",
     "http://165.227.177.75:8000",
     "http://165.227.177.75:8080",
-    "http://165.227.177.75",
+    "165.227.177.75",
 ]
 ALLOWED_HOSTS = accesosUrl
 
