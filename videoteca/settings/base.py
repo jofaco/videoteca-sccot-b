@@ -24,7 +24,7 @@ accesosUrl = [
     "http://165.227.177.75",
 ]
 
-ALLOWED_HOSTS = accesosUrl
+ALLOWED_HOSTS = "*"
 
 
 # Application definition
