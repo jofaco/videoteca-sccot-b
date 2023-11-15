@@ -25,8 +25,6 @@ accesosUrl = [
     "http://165.227.177.75:8000",
     "http://165.227.177.75:8080",
     "http://165.227.177.75",
-    "videos.sccot.org",
-    "sccot-app-1-fnul8.ondigitalocean.app" 
 ]
 ALLOWED_HOSTS = accesosUrl
 
