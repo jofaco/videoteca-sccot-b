@@ -20,7 +20,7 @@ DATABASES = {
         #'HOST':'localhost',
         #'PORT':'3306',
         #production
-        'NAME': 'sccotvideos',
+        'NAME': 'sccotvideo',
         'USER':'sccot',
         'PASSWORD':'password',
         'HOST':'localhost',
