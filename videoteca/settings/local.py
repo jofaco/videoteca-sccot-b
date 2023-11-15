@@ -14,7 +14,7 @@ DATABASES = {
         'OPTIONS': {
             'sql_mode': 'traditional',
         },
-        'NAME': 'videoteca2',
+        'NAME': 'sccotvideo',
         'USER':'root',
         'PASSWORD':'',
         'HOST':'localhost',
