@@ -22,6 +22,7 @@ accesosUrl = [
     "http://165.227.177.75:8000",
     "http://165.227.177.75:8080",
     "http://165.227.177.75",
+    "https://prueba2123.web.app/"
 ]
 
 ALLOWED_HOSTS = "*"
