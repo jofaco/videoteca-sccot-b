@@ -7,12 +7,12 @@ ALLOWED_HOSTS = ["*"]
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'sql_mode': 'traditional',
-        },
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'OPTIONS': {
+#            'sql_mode': 'traditional',
+#        },
        #local
         #'NAME': 'videoteca2',
         #'USER':'root',
@@ -20,13 +20,20 @@ DATABASES = {
         #'HOST':'localhost',
         #'PORT':'3306',
         #production
-        'NAME': 'sccotvideo',
-        'USER':'sccot',
-        'PASSWORD':'password',
-        'HOST':'localhost',
-        'PORT':'3306'
-    }
+        #'NAME': 'sccotvideo',
+        #'USER':'sccot',
+        #'PASSWORD':'password',
+        #'HOST':'localhost',
+        #'PORT':'3306'
+#    }
+#}
+
+DATABASES={
+    'default':dj_database_url.config(
+       
+    )
 }
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
