@@ -28,11 +28,11 @@ ALLOWED_HOSTS = ["*"]
 #    }
 #}
 
-DATABASES={
-    'default':dj_database_url.config(
-       
-    )
-}
+#ATABASES={
+#   'default':dj_database_url.config(
+#      
+#   )
+#}
 
 
 # Static files (CSS, JavaScript, Images)
