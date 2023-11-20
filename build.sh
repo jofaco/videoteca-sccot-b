@@ -2,7 +2,7 @@
 # exit on error
 
 set -o errexit
-python -m pip install --upgrade pip
+pip install --upgrade --no-binary hdbscan hdbscan
 pip install
 pip install -r requirements.txt
 python manage.py collectstatic --no-input
